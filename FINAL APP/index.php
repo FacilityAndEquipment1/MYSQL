@@ -16,7 +16,8 @@ if (isset($_POST['login_btn'])) {
 <!DOCTYPE html>
 <html>
 <head><link rel="stylesheet" href="style.css"></head>
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
 <body>
     <div class="card">
         <h2> ICT Hekp Desk Login</h2>
