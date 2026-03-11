@@ -2,6 +2,7 @@ CREATE DATABASE Facility_Equipment;
 USE Facility_Equipment;
 
 
+
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -24,6 +25,7 @@ CREATE TABLE Facility_Reservation (
     REFERENCES users(user_id)
     ON DELETE SET NULL
 );
+
 
 
 CREATE TABLE equipment (
