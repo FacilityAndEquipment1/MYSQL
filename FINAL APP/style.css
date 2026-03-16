@@ -1,4 +1,3 @@
-/* --- Global Styles --- */
 :root {
     --primary: #2563eb;
     --secondary: #0f172a;
@@ -26,7 +25,6 @@ body {
     padding: 20px;
 }
 
-/* --- Card & Container Logic --- */
 .card, .admin-wrapper, .table-container {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
@@ -39,7 +37,7 @@ body {
     margin-bottom: 20px;
 }
 
-.card { max-width: 400px; } /* For Login/Add Form */
+.card { max-width: 400px; } 
 
 h2, h3, h4 {
     margin-bottom: 1.5rem;
@@ -48,7 +46,6 @@ h2, h3, h4 {
     text-transform: uppercase;
 }
 
-/* --- Form Elements --- */
 input, select, button {
     width: 100%;
     padding: 12px 15px;
@@ -68,7 +65,6 @@ input:focus, select:focus {
 
 option { background: #1e293b; }
 
-/* --- Buttons --- */
 button, .btn-submit, .btn-login {
     background: var(--primary);
     border: none;
@@ -92,7 +88,6 @@ button:hover {
     width: 100%;
 }
 
-/* --- Table Styling --- */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -115,7 +110,6 @@ tr:hover {
     background: rgba(255, 255, 255, 0.03);
 }
 
-/* --- Status Badges --- */
 .status {
     padding: 5px 12px;
     border-radius: 20px;
@@ -128,7 +122,6 @@ tr:hover {
 .status.Approved { background: var(--success); color: #fff; }
 .status.Rejected { background: var(--danger); color: #fff; }
 
-/* --- Admin Action Buttons --- */
 .btn-approve, .btn-reject {
     text-decoration: none;
     padding: 6px 12px;
@@ -143,7 +136,6 @@ tr:hover {
 
 .btn-approve:hover, .btn-reject:hover { opacity: 0.8; }
 
-/* --- Logout Button Style --- */
 .logout-container {
     margin-top: 30px;
     text-align: center;
@@ -156,7 +148,7 @@ tr:hover {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: rgba(239, 68, 68, 0.1); /* Soft transparent red */
+    background: rgba(239, 68, 68, 0.1); 
     color: #ef4444;
     border: 1px solid #ef4444;
     padding: 10px 25px;
@@ -168,7 +160,7 @@ tr:hover {
 }
 
 .logout-btn:hover {
-    background: #ef4444; /* Solid red on hover */
+    background: #ef4444; 
     color: white;
     box-shadow: 0 10px 20px -5px rgba(239, 68, 68, 0.4);
     transform: translateY(-3px);
@@ -179,22 +171,20 @@ tr:hover {
     height: 18px;
 }
 
-/* Container para sa tibuok page aron dili matabunan sa header */
 .main-content {
-    padding-top: 80px; /* Space para sa floating header */
+    padding-top: 80px; 
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Ang Modern Top Navigation */
 .top-nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: 60px;
-    background: rgba(15, 23, 42, 0.9); /* Dark semi-transparent */
+    background: rgba(15, 23, 42, 0.9); 
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
@@ -210,9 +200,8 @@ tr:hover {
     letter-spacing: 1px;
 }
 
-/* Ang Logout Button Design */
 .btn-logout {
-    background-color: #ef4444; /* Pula para dali makita */
+    background-color: #ef4444; 
     color: white;
     padding: 8px 16px;
     border-radius: 6px;
@@ -227,7 +216,7 @@ tr:hover {
 }
 
 .btn-logout:hover {
-    background-color: #dc2626; /* Mas mongitngit nga pula inig hover */
+    background-color: #dc2626; 
     transform: translateY(-2px);
     box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.4);
 }
@@ -240,7 +229,7 @@ tr:hover {
     display: flex;
     justify-content: center;
     gap: 30px;
-    padding: 80px 5% 20px 5%; /* padding-top para sa top-nav */
+    padding: 80px 5% 20px 5%; 
     flex-wrap: wrap;
 }
 
