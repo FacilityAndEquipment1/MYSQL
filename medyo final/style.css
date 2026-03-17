@@ -1,0 +1,456 @@
+/* --- Global Styles --- */
+:root {
+    --primary: #2563eb;
+    --secondary: #0f172a;
+    --success: #22c55e;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* --- Card & Container Logic --- */
+.card, .admin-wrapper, .table-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 20px;
+}
+
+.card { max-width: 400px; } /* For Login/Add Form */
+
+h2, h3, h4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* --- Form Elements --- */
+input, select, button {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+}
+
+option { background: #1e293b; }
+
+/* --- Buttons --- */
+button, .btn-submit, .btn-login {
+    background: var(--primary);
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.logout-btn {
+    display: inline-block;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+/* --- Table Styling --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+thead {
+    background: rgba(37, 99, 235, 0.2);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* --- Status Badges --- */
+.status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status.Pending { background: var(--warning); color: #000; }
+.status.Approved { background: var(--success); color: #fff; }
+.status.Rejected { background: var(--danger); color: #fff; }
+
+/* --- Admin Action Buttons --- */
+.btn-approve, .btn-reject {
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.btn-approve { background: var(--success); color: white; }
+.btn-reject { background: var(--danger); color: white; }
+
+.btn-approve:hover, .btn-reject:hover { opacity: 0.8; }
+
+/* --- Logout Button Style --- */
+.logout-container {
+    margin-top: 30px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.logout-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(239, 68, 68, 0.1); /* Soft transparent red */
+    color: #ef4444;
+    border: 1px solid #ef4444;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #ef4444; /* Solid red on hover */
+    color: white;
+    box-shadow: 0 10px 20px -5px rgba(239, 68, 68, 0.4);
+    transform: translateY(-3px);
+}
+
+.logout-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Container para sa tibuok page aron dili matabunan sa header */
+.main-content {
+    padding-top: 80px; /* Space para sa floating header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Ang Modern Top Navigation */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: rgba(15, 23, 42, 0.9); /* Dark semi-transparent */
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-weight: 600;
+    color: #3b82f6;
+    letter-spacing: 1px;
+}
+
+/* Ang Logout Button Design */
+.btn-logout {
+    background-color: #ef4444; /* Pula para dali makita */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btn-logout:hover {
+    background-color: #dc2626; /* Mas mongitngit nga pula inig hover */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.4);
+}
+
+.btn-logout svg {
+    width: 18px;
+    height: 18px;
+}
+.dashboard-content {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 80px 5% 20px 5%; /* padding-top para sa top-nav */
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;
+    max-width: 400px;
+    min-width: 300px;
+}
+
+.table-container {
+    flex: 2;
+    min-width: 500px;
+}
+
+.btn-delete {
+    text-decoration: none;
+    padding: 5px 8px;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid #ef4444;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.btn-delete:hover {
+    background: #ef4444;
+    color: white !important;
+}
+
+/* General Styling */
+:root {
+    --primary: #3b82f6;
+    --success: #22c55e;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --dark-bg: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+}
+
+.admin-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Header Design */
+.admin-header {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    border-left: 5px solid var(--primary);
+    margin-bottom: 30px;
+}
+
+.admin-header h1 {
+    margin: 0;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.admin-header p {
+    margin: 5px 0 0;
+    color: var(--text-muted);
+}
+
+/* Table Design */
+.section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.table-container {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+td {
+    padding: 18px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 14px;
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Button Styling */
+.btn-approve {
+    background: var(--success);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.btn-reject {
+    background: transparent;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+    padding: 7px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-approve:hover {
+    background: #16a34a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.btn-reject:hover {
+    background: var(--danger);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.btn-logout {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+    border: 1px solid var(--danger);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.btn-logout:hover {
+    background: var(--danger);
+    color: white;
+}
+
+/* Empty State */
+.empty-msg {
+    padding: 40px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+
+    h3 {
+        color: #1e40af; /* Deep Blue color */
+        background: #eff6ff; /* Light blue background */
+        padding: 12px 15px;
+        border-left: 5px solid #3b82f6; /* Blue bar sa kilid */
+        border-radius: 5px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+    }
+
+    /* Opsyonal: Lahi nga color para sa table header h3 kung gusto nimo i-distinguish */
+    .table-container h3 {
+        color: #065f46; /* Greenish color para sa logs */
+        background: #ecfdf5;
+        border-left: 5px solid #10b981;
+    }
