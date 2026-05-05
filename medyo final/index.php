@@ -7,23 +7,22 @@ if (isset($_POST['login_btn'])) {
     $p = mysqli_real_escape_string($conn, $_POST['password']);
     $r = $_POST['role'];
 
-    // 1. I-check ang tanan (username, password, role)
+
     $sql = "SELECT * FROM users WHERE username='$u' AND password='$p' AND role='$r'";
     $res = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($res) > 0) {
         $row = mysqli_fetch_assoc($res);
         
-        // 2. I-set ang session
+       
         $_SESSION['username'] = $row['username'];
         $_SESSION['role'] = $row['role'];
 
-        // 3. I-debug ang redirect (Siguraduha nga husto ang spelling sa files)
         if ($row['role'] == 'admin') {
             header("Location: admin.php");
             exit();
         } elseif ($row['role'] == 'manager') {
-            header("Location: manager.php"); // SIGURADUHA NGA NAA NI NGA FILE
+            header("Location: manager.php");
             exit();
         } else {
             header("Location: user.php");

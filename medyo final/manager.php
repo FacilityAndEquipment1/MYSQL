@@ -2,13 +2,12 @@
 session_start();
 include 'db.php'; 
 
-// Proteksyon: Manager lang ang pwede makasulod
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 'manager') {
     header("Location: index.php");
     exit();
 }
 
-// --- LOGIC PARA SA PAG-RETURN ---
+
 if (isset($_GET['return_id'])) {
     $id = $_GET['return_id'];
     mysqli_query($conn, "UPDATE reserve_equipment SET status='Returned' WHERE id=$id");
@@ -16,7 +15,7 @@ if (isset($_GET['return_id'])) {
     exit();
 }
 
-// LOGIC: Pag-delete og User
+
 if (isset($_GET['delete_user'])) {
     $id = $_GET['delete_user'];
     mysqli_query($conn, "DELETE FROM users WHERE id=$id");
@@ -57,8 +56,7 @@ if (isset($_GET['delete_user'])) {
         }
         .stat-card h3 { margin: 0; color: #1f2937; font-size: 16px; }
         .stat-card p { font-size: 32px; font-weight: bold; color: #3b82f6; margin: 5px 0 0; }
-        
-        /* Map Style */
+    
         #map-container {
             background: white;
             padding: 15px;
@@ -216,7 +214,7 @@ if (isset($_GET['delete_user'])) {
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-    // Focus sa NBSC Campus
+    
     var map = L.map('manager-map').setView([8.3615, 124.8585], 18);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -233,7 +231,7 @@ if (isset($_GET['delete_user'])) {
     }
 
     <?php
-    // I-plot lang ang mga Approved (Deployed) items
+   
     $map_data = mysqli_query($conn, "SELECT user_name, equipment_name, purpose FROM reserve_equipment WHERE status='Approved'");
     while($m = mysqli_fetch_assoc($map_data)) {
         $u = addslashes($m['user_name']);

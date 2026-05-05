@@ -1,6 +1,6 @@
 <?php
 session_start();
-// 1. TIMEZONE SETTING (Importante para sa saktong oras sa Pinas)
+
 date_default_timezone_set('Asia/Manila'); 
 
 include 'db.php';
@@ -12,7 +12,6 @@ if (!isset($_SESSION['username'])) {
 
 $u = $_SESSION['username'];
 
-// 2. DELETE LOGIC (Kini ang mofunction inig click sa Delete)
 if (isset($_GET['delete_fac'])) {
     $id = $_GET['delete_fac'];
     mysqli_query($conn, "DELETE FROM reserve_facilities WHERE id=$id AND user_name='$u'");
@@ -23,9 +22,8 @@ if (isset($_GET['delete_eq'])) {
     $id = $_GET['delete_eq'];
     mysqli_query($conn, "DELETE FROM reserve_equipment WHERE id=$id AND user_name='$u'");
     header("Location: user.php");
-}
+} 
 
-// 3. SUBMIT RESERVATION LOGIC
 if (isset($_POST['submitRes'])) {
     $t = mysqli_real_escape_string($conn, $_POST['event_title']);
     $type = $_POST['res_type'];

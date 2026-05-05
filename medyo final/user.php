@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
 
 $u = $_SESSION['username'];
 
-// DELETE LOGIC
+
 if (isset($_GET['delete_fac'])) {
     $id = $_GET['delete_fac'];
     mysqli_query($conn, "DELETE FROM reserve_facilities WHERE id=$id AND user_name='$u'");
@@ -23,9 +23,9 @@ if (isset($_GET['delete_eq'])) {
     header("Location: user.php");
 }
 
-// SUBMIT RESERVATION
+
 if (isset($_POST['submitRes'])) {
-    $purpose = mysqli_real_escape_string($conn, $_POST['event_title']); // Mao kini ang Location
+    $purpose = mysqli_real_escape_string($conn, $_POST['event_title']);
     $type = $_POST['res_type'];
     $item = $_POST['item_name'];
     $date = $_POST['event_date'];

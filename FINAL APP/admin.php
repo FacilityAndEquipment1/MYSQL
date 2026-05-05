@@ -2,7 +2,7 @@
 session_start();
 include 'db.php';
 
-// Logic para sa Approve/Reject
+
 if (isset($_GET['id']) && isset($_GET['tbl'])) {
     $id = $_GET['id']; $st = $_GET['st']; $tbl = $_GET['tbl'];
     $table_name = ($tbl == 'fac') ? 'reserve_facilities' : 'reserve_equipment';
@@ -36,7 +36,7 @@ if (isset($_GET['id']) && isset($_GET['tbl'])) {
                 <?php
                 $res = mysqli_query($conn, "SELECT * FROM reserve_facilities ORDER BY reserve_date ASC");
                 while($row = mysqli_fetch_assoc($res)) {
-                    // Gi-format nato ang date para nindot basahon (Ex: Mar 12, 2026 - 8:00 AM)
+                  
                     $formattedDate = date('M d, Y - h:i A', strtotime($row['reserve_date']));
                     echo "<tr>
                         <td>{$row['user_name']}</td>

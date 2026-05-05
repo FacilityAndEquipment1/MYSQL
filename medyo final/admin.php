@@ -2,13 +2,11 @@
 session_start();
 include 'db.php';
 
-// Proteksyon: Admin lang ang makasulod
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
     header("Location: index.php");
     exit();
 }
 
-// Logic para sa Approve/Reject
 if (isset($_GET['id']) && isset($_GET['tbl'])) {
     $id = $_GET['id']; 
     $st = $_GET['st']; 
@@ -20,7 +18,7 @@ if (isset($_GET['id']) && isset($_GET['tbl'])) {
     exit();
 }
 
-// Pag-ihap sa Pending Requests
+
 $count_fac = mysqli_query($conn, "SELECT id FROM reserve_facilities WHERE status='Pending'");
 $pending_fac = mysqli_num_rows($count_fac);
 
@@ -59,7 +57,7 @@ $pending_eq = mysqli_num_rows($count_eq);
             padding: 20px;
         }
 
-        /* Modern Header */
+       
         .admin-header {
             display: flex;
             justify-content: space-between;
@@ -74,7 +72,6 @@ $pending_eq = mysqli_num_rows($count_eq);
 
         .admin-header h1 { margin: 0; font-size: 28px; letter-spacing: -1px; }
 
-        /* Card Design */
         .stat-card {
             background: var(--glass);
             padding: 25px;
@@ -89,7 +86,6 @@ $pending_eq = mysqli_num_rows($count_eq);
             border-color: var(--primary);
         }
 
-        /* Table Design */
         .table-container {
             background: var(--glass);
             border-radius: 15px;
@@ -104,7 +100,6 @@ $pending_eq = mysqli_num_rows($count_eq);
         td { padding: 18px 15px; border-bottom: 1px solid var(--glass-border); font-size: 14px; }
         tr:hover { background: rgba(255,255,255,0.02); }
 
-        /* Status Badges */
         .badge {
             padding: 4px 10px;
             border-radius: 6px;
@@ -116,7 +111,7 @@ $pending_eq = mysqli_num_rows($count_eq);
         .bg-returned { background: rgba(148, 163, 184, 0.2); color: #94a3b8; }
         .bg-rejected { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
 
-        /* Glass Buttons */
+       
         .btn-approve, .btn-reject {
             padding: 8px 16px;
             border-radius: 8px;
